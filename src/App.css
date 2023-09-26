@@ -1,0 +1,51 @@
+:root {
+  --text : #F0F1F4;
+  --Background : #262C3A;
+  --famtext :   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --titlefam : 'Creepster', cursive;
+  --titlecolor: #02A6BF;
+  --bannerbackground:#212020;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--famtext);
+}
+
+body {
+  background-color: var(--Background);
+  color: var(--text);
+}
+
+li {
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  min-height: 10vh;
+}
+
+main {
+  min-height: 80vh;
+}
+
+footer {
+  min-height: 10vh;
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
