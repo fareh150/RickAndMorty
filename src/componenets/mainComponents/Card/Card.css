@@ -1,0 +1,24 @@
+.galeria li {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.galeria li .name{
+    font-family: var(--titlefam);
+    font-size: 40px;
+}
+
+.galeria li .boxdata {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.galeria li img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}

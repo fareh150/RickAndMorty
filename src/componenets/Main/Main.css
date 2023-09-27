@@ -11,3 +11,32 @@ main {
     font-size: 70px;
     text-shadow: 2px 2px 1px #6CE14E, -2px 2px 1px #6CE14E, -1px -2px 1px #6CE14E;
 }
+
+.galeria {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 20px;
+    gap: 10px;
+}
+
+.pageBtn {
+    display: flex;
+    gap: 20px;
+    font-size: 40px;
+}
+
+
+
+.pageBtn .npage {
+    font-family: var(--titlefam);
+}
+
+
+.pageBtn .btn {
+    background-color: transparent;
+    color: #6CE14E;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}

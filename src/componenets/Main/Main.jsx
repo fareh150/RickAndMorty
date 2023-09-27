@@ -1,37 +1,39 @@
+import Card from "../mainComponents/Card/Card";
 import "./Main.css"
 import { useState, useEffect } from "react"
-import { v4 as uuidv4 } from 'uuid';
 
 
 const Main = () => {
 
     const [characters, setCharacters] = useState([]);
+    const [pages, setPage] = useState(2);
 
     const getCharacters = async () => {
-        const data = await fetch(`https://rickandmortyapi.com/api/character?page=1`);
+        const data = await fetch(`https://rickandmortyapi.com/api/character?page=${pages}`);
         const dataJSON = await data.json();
         setCharacters(dataJSON.results);
     }
 
     useEffect(() => {
         getCharacters()
-    }, [])
+    }, [pages])
 
     return (
         <main>
             <h1 className="title">Rick and Morty</h1>
-            <section className="galeria">
-                {characters.map((character) => (
-                    <ul key={character.id} className="card">
-                        <li className="imagen"><img src={character.image} alt={character.name} /></li>
-                        <li className="name">{character.name}</li>
-                        <li className="status">{character.status}</li>
-                        <li className="species">{character.species}</li>
-                        
-                    </ul>
-                    ))}
+            <section className="pageBtn">
+                {
+                    pages <= 1 ? <button disabled>◀</button> : <button className="left btn" onClick={() => setPage(pages - 1)}>◀</button>
+                }
+                
+                <span className="npage">{pages}</span>
+                <button className="right btn" onClick={() => setPage(pages + 1)}>▶</button>
             </section>
-            
+            <ul className="galeria">
+                {characters.map((character) => (
+                     character.status == "Alive" || character.status == "unknown"? <Card key={character.id} info={character} /> : "" 
+                    ))}
+            </ul>
         </main>
     )
 }
