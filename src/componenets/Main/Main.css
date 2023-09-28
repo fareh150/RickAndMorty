@@ -40,3 +40,10 @@ main {
     padding: 10px;
     cursor: pointer;
 }
+
+.pageBtn button:disabled {
+    background-color: inherit;
+    color: rgba(182, 181, 181, 0.684);
+    border: none;
+    padding: 10px;
+}

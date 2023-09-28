@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 const Main = () => {
 
     const [characters, setCharacters] = useState([]);
-    const [pages, setPage] = useState(2);
+    const [pages, setPage] = useState(1);
 
     const getCharacters = async () => {
         const data = await fetch(`https://rickandmortyapi.com/api/character?page=${pages}`);
@@ -25,9 +25,10 @@ const Main = () => {
                 {
                     pages <= 1 ? <button disabled>◀</button> : <button className="left btn" onClick={() => setPage(pages - 1)}>◀</button>
                 }
-                
                 <span className="npage">{pages}</span>
-                <button className="right btn" onClick={() => setPage(pages + 1)}>▶</button>
+                {
+                    pages >= 42 ? <button disabled>▶</button> : <button className="right btn" onClick={() => setPage(pages + 1)}>▶</button>
+                }
             </section>
             <ul className="galeria">
                 {characters.map((character) => (
